@@ -34,12 +34,12 @@ public class mqtt implements MqttCallback {
 	}
 	
 	public void runSmokeSensor() throws MqttException {
-		client = new MqttClient("tcp://127.0.0.1:1883", MqttClient.generateClientId());
+		client = new MqttClient("tcp://localhost:1883", MqttClient.generateClientId());
 		client.connect();
 		System.out.println("[MQTT Client] Connected");
 		client.setCallback(this);
-		client.subscribe("test");
-		//simulateSmokeSensor(client);
+		client.subscribe("SmokeSensor");
+		simulateSmokeSensor(client);
 	}
 	
 	private void simulateSmokeSensor(MqttClient client) {
