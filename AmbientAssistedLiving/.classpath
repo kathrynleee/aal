@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 13.0.1 [13.0.1]">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/jackson-annotations-2.9.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/jackson-core-2.9.8.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/jackson-databind-2.9.8.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/mysql-connector-java-8.0.15.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/pagehelper-5.1.8.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-aop-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-beans-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-context-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-core-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-expression-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-jcl-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-jdbc-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-tx-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-web-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-webmvc-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/xdoclet-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/xjavadoc-1.0.3.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/org.eclipse.paho.client.mqttv3-1.2.2.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

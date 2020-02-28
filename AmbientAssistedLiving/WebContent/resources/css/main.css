@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css?family=Arbutus+Slab|Courier+Prime:700|Libre+Baskerville&display=swap');
+/*font-family: 'Courier Prime', ;
+font-family: 'Libre Baskerville', ;
+font-family: 'Arbutus Slab', ;*/
+
+html, body {
+    height: 100%;
+}
+
+body, input, button {
+    font-family: 'Arbutus Slab';
+    overflow-x: hidden; /* remove horizontal scrollbar */
+    overflow-y: hidden;
+}
+
+.header {
+    position: fixed;
+    overflow: hidden;
+    height: 60px;
+    top: 0;
+    width: 100%;
+    background-color: #13254C;
+    color: #FFF8E8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .house {
+    width: 35px;
+    padding-right: 10px;
+}
+
+.header .menu-img {
+    width: 25px;
+}
+
+.header .menu-img.burger {
+    padding-right: 20px;
+}
+
+.header a {
+    text-decoration: inherit;
+    color: #FFF8E8;
+    padding: 15px;
+    font-family: 'Courier Prime';
+    font-size: large;
+    transition: 0.5s;
+}
+
+.header .menu-img:hover {
+    transform: scale(1.2);
+}
+
+.header .menu-group a:nth-child(1) {
+    padding: 0px;
+}
+
+input::placeholder {
+    color: #13254C;
+    opacity: 0.5;
+}
+
+/* login */
+.login {
+    margin-top: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding: 100px;
+    color: #13254C;
+}
+
+.newUser {
+    cursor: pointer;
+    font-size: small;
+    text-align: right;
+    padding: 10px;
+}
+
+.newUser a:hover{
+    text-decoration: underline;
+}
+
+
+/* dashboard */
+.main {
+    color: #13254C;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .section {
+    font-size: 5vh;
+    flex: 1;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #FFF8E8;
+    border-bottom: solid 1px #13254C;
+}
+
+.main .section:last-child {
+    border-bottom: none;
+}
+
+.main .section .item {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .section a {
+    text-decoration: inherit;
+    color: #13254C;
+}
+
+.main .section:hover {
+    background-color: transparent;
+    opacity: 0.9;
+}
+
+.main .section img {
+    height: auto;
+    width: 5vh;
+    padding-left: 10px;
+}
+
+
+/* common */
+.title {
+    font-size: xx-large;
+    text-align: left;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.sub-section {
+    background-color: #FFF8E8;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+input, button {
+    padding: 15px;
+    border: none;
+}
+
+label {
+    display: none;
+    margin: 5px 10px 0px 10px;
+}
+
+button {
+    background-color: #13254C;
+    color: white;
+    width: 300px;
+    margin: 10px;
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-size: 1.2rem;
+}
+button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+button:hover span {
+    padding-right: 25px;
+}
+
+button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+input {
+    background-color: #FFF8E8;
+    color: #13254C;
+    width: 270px;
+    margin: 6px 10px;
+}
+
+.grow { 
+    transition: 0.5s; 
+}
+
+.grow:hover { 
+    transform: scale(1.1); 
+}
+
+.main .sub {
+    padding: 20px;
+}
+
+.burger {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: #13254C;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 0.5s ease;
+}
+
+.menu-gp:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+
+.menu-items {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.main.device .button-gp button {
+	font-size: small;
+	flex: 1 1 0;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 0;
+}
+
+.button-gp {
+	display: flex;
+}
+
+.main.device .messages {
+	height: 100%;
+	margin: 10px;
+	background-color: #FFF8E8;
+}
+
+.main.device .sub {
+	height: 100%;
+	margin-bottom: 20px;
+}

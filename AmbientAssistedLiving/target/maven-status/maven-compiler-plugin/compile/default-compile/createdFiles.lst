@@ -1,0 +1,6 @@
+main/controller/RestAALController.class
+main/service/HealthService.class
+main/service/mqtt.class
+main/service/mqtt$1.class
+main/controller/IndexController.class
+main/service/PhotoService.class
