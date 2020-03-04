@@ -14,7 +14,10 @@
 
         <script>
             $(document).ready(function(){
-
+				if(localStorage.userType == "FRIEND")
+					$(".userOnly").hide();
+				else
+					$(".userOnly").show();
             });
         </script>
     </head>
@@ -25,7 +28,7 @@
             </div>
             <div class="menu-group">
                 <a href="#"><img class="menu-img user" src="resources/image/user.png"></a>
-                <a href="#"><img class="menu-img" src="resources/image/logout.png"></a>
+                <a href="login"><img class="menu-img" src="resources/image/logout.png"></a>
             </div>
         </div>
         <div class="main">
@@ -41,19 +44,19 @@
                     <img src="resources/image/photo.png">
                 </a>
             </div>
-            <div class="section">
+            <div class="section userOnly">
                 <a class="item grow" href="security">
                     <span>Security</span>
                     <img src="resources/image/security.png">
                 </a>
             </div>
-            <div class="section">
+            <div class="section userOnly">
                 <a class="item grow" href="rule">
                     <span>Rules</span>
                     <img src="resources/image/rule.png">
                 </a>
             </div>
-            <div class="section">
+            <div class="section userOnly">
                 <a class="item grow" href="device">
                     <span>Devices</span>
                     <img src="resources/image/device.png">

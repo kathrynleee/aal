@@ -36,6 +36,8 @@
 	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/spring-webmvc-5.1.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/xdoclet-1.2.1.jar"/>
 	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/xjavadoc-1.0.3.jar"/>
-	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/org.eclipse.paho.client.mqttv3-1.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/mqttv3-1.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/hibernate-core-5.4.12.Final.jar"/>
+	<classpathentry kind="lib" path="/Users/kathryn/eclipse-workspace/apache-tomcat-9.0.16/lib/javax.persistence-api-2.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

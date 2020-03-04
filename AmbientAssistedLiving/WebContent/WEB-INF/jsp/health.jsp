@@ -14,6 +14,13 @@
 
         <script>
             $(document).ready(function(){
+            	if(localStorage.userType == "FRIEND") {
+					$(".userOnly").hide();
+					$(".friendOnly").show();
+            	} else {
+            		$(".userOnly").show();
+					$(".friendOnly").hide();
+            	}
             });
         </script>
     </head>
@@ -28,11 +35,11 @@
                     <div class="menu-items">
                         <a href="health"><img class="menu-img" src="resources/image/yellow/health.png"></a>
                         <a href="photo"><img class="menu-img" src="resources/image/yellow/photo.png"></a>
-                        <a href="security"><img class="menu-img" src="resources/image/yellow/security.png"></a>
-                        <a href="rule"><img class="menu-img" src="resources/image/yellow/rule.png"></a>
-                        <a href="device"><img class="menu-img" src="resources/image/yellow/device.png"></a>
+                        <a href="security" class="userOnly"><img class="menu-img" src="resources/image/yellow/security.png"></a>
+                        <a href="rule" class="userOnly"><img class="menu-img" src="resources/image/yellow/rule.png"></a>
+                        <a href="device" class="userOnly"><img class="menu-img" src="resources/image/yellow/device.png"></a>
                         <a href="#"><img class="menu-img" src="resources/image/user.png"></a>
-                        <a href="#"><img class="menu-img" src="resources/image/logout.png"></a>
+                        <a href="login"><img class="menu-img" src="resources/image/logout.png"></a>
                     </div>
                 </div>
             </div>

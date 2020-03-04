@@ -257,13 +257,121 @@ input {
 	display: flex;
 }
 
-.main.device .messages {
-	height: 100%;
+#messages {
 	margin: 10px;
 	background-color: #FFF8E8;
+	line-height: 30px;
+	padding: 10px;
+    overflow-x: scroll; 
+    height: 460px;
 }
 
 .main.device .sub {
 	height: 100%;
 	margin-bottom: 20px;
 }
+
+/* Photo */
+.photo-carousel img.carousel-img {
+	max-width: 100%;
+  	height: auto;
+}
+
+.main.photo .sub-section{
+	background-color: white;
+}
+
+.main.photo .uploadForm form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.inputfile-2 + label {
+    color: #13254C;
+    border: 2px solid #13254C;
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+    color: #13254C;
+}
+
+
+
+.js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    height: 35px;
+    width: auto;
+    min-width: 285px;
+    /* 20px font-size: 1.25rem; */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #FFF8E8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+	justify-content: center;
+    overflow: hidden;
+    padding: 5px;
+    /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: #13254C;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+/* Security */
+.main.security table {
+    margin: 0 auto;
+}
+.main.security table td, .main.security table th {
+	padding: 0px 30px;
+	text-align: center;
+}
+
+.main.security table button {
+	background-color: #13254C;
+    color: white;
+    width: 100px;
+}
+
+.main.security table button span{
+	font-size: 1em;
+}
+
+.main.security table .alert{
+	color: #C11F47;
+	font-weight: bold;
+}
+
+
+

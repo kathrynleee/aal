@@ -1,6 +1,9 @@
-main/controller/RestAALController.class
-main/service/HealthService.class
+main/service/UserService.class
+main/model/User$Role.class
+main/service/ParameterStringBuilder.class
 main/service/mqtt.class
-main/service/mqtt$1.class
+main/model/User.class
 main/controller/IndexController.class
+main/controller/RestAALController.class
+main/service/mqtt$1.class
 main/service/PhotoService.class

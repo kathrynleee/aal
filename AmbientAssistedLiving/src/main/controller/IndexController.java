@@ -17,11 +17,6 @@ public class IndexController {
 	
     @RequestMapping("/{target}")
     public ModelAndView direct(@PathVariable String target, HttpServletRequest request, HttpServletResponse response) {
-//    	try {
-//    		instance.runSmokeSensor();
-//		} catch (MqttException e) {
-//			System.out.println("Error when running Mqtt");
-//		}
         return new ModelAndView(target);
     }
 }

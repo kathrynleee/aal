@@ -14,7 +14,33 @@
 
     <script>
         $(document).ready(function(){
-        });
+        	$("button[value='save']").click(function() {
+        		$.ajax({
+    				url : "restapi/login",
+    				dataType: "json",
+    				data : {
+    					username: $("input[name='username']").val(),
+                        password: $("input[name='password']").val()
+    	    	    },
+    				type : "POST",
+    			    complete: function (response) {
+    			    	console.log(response);
+    			    	var type = "USER";
+    			    	if($("input[name='username']").val() == "nick")
+    			    		type = "FRIEND";
+    			    	localStorage.userType = type;
+    			    	window.location.href = "dashboard";
+    			    },
+    			    success: function(data) {
+    			    	console.log(data);
+    			    		
+    			    },
+    			    error: function() {
+    			        alert('Error occured');
+    			    }
+    			});
+        	});
+    	});
     </script>
 </head>
 <body>
@@ -26,11 +52,11 @@
         <form>
             <div>
                 <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Username">
+                <input type="text" name="username" placeholder="Username">
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password">
+                <input type="password" name="password" placeholder="Password">
             </div>
             <button type="submit" value="save"><span>Login</span></button>
         </form>
