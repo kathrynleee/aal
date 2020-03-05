@@ -11,9 +11,12 @@
         <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon_io/favicon-16x16.png">
         <link rel="manifest" href="resources/favicon_io/site.webmanifest">
         <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
-
+        <script type="text/javascript" src="resources/js/mqttws31.js"></script>
+		<script type="text/javascript" src="resources/js/health.js"></script>
+		
         <script>
             $(document).ready(function(){
+            	startConnect();
             	if(localStorage.userType == "FRIEND") {
 					$(".userOnly").hide();
 					$(".friendOnly").show();
@@ -44,18 +47,22 @@
                 </div>
             </div>
         </div>
-        <div class="main">
+        <div class="main health">
             <div class="sub">
                 <div class="title">Health</div>
                 <div class="sub-section">
-                    <div class="sub-section-title">Heart Rate</div>
+                    <div class="sub-section-title">Heart Rate&nbsp;&nbsp;&nbsp;<span id="HeartRate">0</span></div>
                 </div>
                 <div class="sub-section">
-                    <div class="sub-section-title">Steps</div>
+                    <div class="sub-section-title">Steps&nbsp;&nbsp;&nbsp;Total:&nbsp;<span id="Step">0</span></div>
                 </div>
                 <div class="sub-section">
-                    <div class="sub-section-title">Glucose Level</div>
+                    <div class="sub-section-title">Glucose Level&nbsp;&nbsp;&nbsp;<span id="Glucose"></span></div>
                 </div>
+                <div class="sub-section">
+                    <div class="sub-section-title">Movement&nbsp;&nbsp;&nbsp;<span id="Movement"></span></div>
+                </div>
+                <div id="messages"></div>
             </div>
         </div>
     </body>

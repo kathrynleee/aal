@@ -30,6 +30,7 @@
     			    		type = "FRIEND";
     			    	localStorage.userType = type;
     			    	window.location.href = "dashboard";
+    			    	window.top.location = "localhost:8000/AmbientAssistedLiving/dashboard";
     			    },
     			    success: function(data) {
     			    	console.log(data);

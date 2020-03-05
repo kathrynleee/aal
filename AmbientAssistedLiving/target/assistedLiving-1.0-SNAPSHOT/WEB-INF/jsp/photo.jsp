@@ -11,6 +11,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon_io/favicon-16x16.png">
         <link rel="manifest" href="resources/favicon_io/site.webmanifest">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -18,12 +19,11 @@
         <script>
             $(document).ready(function(){
             	$('.photo-carousel').slick({
-            		dots: true,
-            		infinite: true,
-            		speed: 500,
             		fade: true,
+            		//speed: 1000,
             		autoplay: true,
-            		autoplaySpeed: 2000,
+            		autoplaySpeed: 1000,
+            		mobileFirst: true,
             		cssEase: 'linear'
             	});
             	
@@ -38,16 +38,25 @@
             	$("input[type='file']").hide();
             	$("form").submit(function (event) {
             	    $.ajax({
-            	          url: url,
+            	          url: "restapi/upload",
             	          type: 'POST',
-            	          data: new FormData($(this)),
+            	          data: {
+            	        	  file: new FormData($(this))
+            	          },
             	          async: false,
+            	          complete: function (response) {
+          			    	console.log(response);
+          			    	},
             	          success: function (data) {
+            	        	  console.log(data);
             	              //success callback
             	          },
             	          cache: false,
             	          contentType: false,
-            	          processData: false
+            	          processData: false,
+            	          error: function() {
+          			        alert('Error occured');
+          			      }
             		});
             	});
             	
@@ -91,9 +100,9 @@
                     <div class="menu-items">
                         <a href="health"><img class="menu-img" src="resources/image/yellow/health.png"></a>
                         <a href="photo"><img class="menu-img" src="resources/image/yellow/photo.png"></a>
-                        <a href="security userOnly"><img class="menu-img" src="resources/image/yellow/security.png"></a>
-                        <a href="rule userOnly"><img class="menu-img" src="resources/image/yellow/rule.png"></a>
-                        <a href="device userOnly"><img class="menu-img" src="resources/image/yellow/device.png"></a>
+                        <a href="security" class="userOnly"><img class="menu-img" src="resources/image/yellow/security.png"></a>
+                        <a href="rule" class="userOnly"><img class="menu-img" src="resources/image/yellow/rule.png"></a>
+                        <a href="device" class="userOnly"><img class="menu-img" src="resources/image/yellow/device.png"></a>
                         <a href="#"><img class="menu-img" src="resources/image/user.png"></a>
                         <a href="login"><img class="menu-img" src="resources/image/logout.png"></a>
                     </div>
@@ -102,7 +111,7 @@
         </div>
         <div class="main photo">
             <div class="sub">
-                <div class="title userOnly">View Photos</div>
+                <div class="title userOnly">Photo Carousel</div>
                 <div class="title friendOnly">Upload Photos</div>
                 <div class="sub-section friendOnly">
                     <!-- <div class="sub-section-title"></div> -->
@@ -121,11 +130,11 @@
                     </div>
                 </div>
 	            <div class="sub-section userOnly">
-	            	<div class="sub-section-title">View Photos</div>
 	            	<div class="photo-carousel">
-					  	<div>your content</div>
-					    <div>your content</div>
-						<div>your content</div>
+					  	<div><img class="carousel-img" src="resources/photo/grindelwald.jpg"></div>
+					    <div><img class="carousel-img" src="resources/photo/lofoten.jpg"></div>
+						<div><img class="carousel-img" src="resources/photo/prague-sunset.jpg"></div>
+						<div><img class="carousel-img" src="resources/photo/roppongi-christmas.jpg"></div>
 					</div>
 	            </div>
             </div>

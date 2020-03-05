@@ -15,17 +15,20 @@
         <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		<script type="text/javascript" src="resources/js/mqttws31.js"></script>
+		<script type="text/javascript" src="resources/js/photo.js"></script>
 
         <script>
             $(document).ready(function(){
-            	$('.photo-carousel').slick({
+            	startConnect();
+            	/* $('.photo-carousel').slick({
             		fade: true,
             		//speed: 1000,
             		autoplay: true,
             		autoplaySpeed: 1000,
             		mobileFirst: true,
             		cssEase: 'linear'
-            	});
+            	}); */
             	
             	if(localStorage.userType == "FRIEND") {
 					$(".userOnly").hide();
@@ -36,19 +39,31 @@
             	}
             	
             	$("input[type='file']").hide();
-            	$("form").submit(function (event) {
-            	    $.ajax({
-            	          url: url,
+            	$("#uploadButton").click(function () {
+            		message = new Paho.MQTT.Message($("label span").text());
+                    message.destinationName = "UploadPhoto";
+                    client.send(message); 
+            	    /* $.ajax({
+            	          url: "restapi/upload",
             	          type: 'POST',
-            	          data: new FormData($(this)),
+            	          data: {
+            	        	  file: new FormData($(this))
+            	          },
             	          async: false,
+            	          complete: function (response) {
+          			    	console.log(response);
+          			    	},
             	          success: function (data) {
+            	        	  console.log(data);
             	              //success callback
             	          },
             	          cache: false,
             	          contentType: false,
-            	          processData: false
-            		});
+            	          processData: false,
+            	          error: function() {
+          			        alert('Error occured');
+          			      }
+            		}); */
             	});
             	
             	
@@ -107,7 +122,7 @@
                 <div class="sub-section friendOnly">
                     <!-- <div class="sub-section-title"></div> -->
                     <div class="uploadForm">
-	                    <form action="#" method="GET" role="form" enctype="multipart/form-data">
+	                    <form>
 		                    <div class="box">
 								<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple="">
 								<label for="file-2">
@@ -116,18 +131,16 @@
 								</label>
 							</div>
 						 	<!--  <input type="file" name="img" multiple>-->
-							<button type="submit">Upload</button>
+							<button type="button" id="uploadButton">Upload</button>
 						</form>
                     </div>
                 </div>
 	            <div class="sub-section userOnly">
 	            	<div class="photo-carousel">
-					  	<div><img class="carousel-img" src="resources/photo/grindelwald.jpg"></div>
-					    <div><img class="carousel-img" src="resources/photo/lofoten.jpg"></div>
-						<div><img class="carousel-img" src="resources/photo/prague-sunset.jpg"></div>
-						<div><img class="carousel-img" src="resources/photo/roppongi-christmas.jpg"></div>
+					  	<!-- <div><img class="carousel-img" src="resources/photo/grindelwald.jpg"></div> -->
 					</div>
 	            </div>
+	            <div id="messages"></div>
             </div>
         </div>
     </body>

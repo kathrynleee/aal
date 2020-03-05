@@ -244,7 +244,7 @@ input {
   white-space: nowrap;
 }
 
-.main.device .button-gp button {
+.button-gp button {
 	font-size: small;
 	flex: 1 1 0;
 	flex-direction: row;
@@ -275,6 +275,7 @@ input {
 .photo-carousel img.carousel-img {
 	max-width: 100%;
   	height: auto;
+  	max-height: 50vh;
 }
 
 .main.photo .sub-section{
@@ -373,5 +374,44 @@ input {
 	font-weight: bold;
 }
 
+.main.security #messages {
+	margin: 0px;
+	height: 250px;
+}
 
+/* Rule */
+.main.rule #messages {
+	margin: 0px;
+	height: 300px;
+}
 
+.main.rule .rule div{
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.main.rule button {
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+/* Health */
+.main.health #messages {
+	margin: 0px;
+	height: 300px;
+}
+
+.main.health .sub-section-title {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.main.health .sub-section-title span {
+	padding-left: 20px;
+}
+
+/* Health */
+.main.photo #messages {
+	margin: 0px;
+	height: 300px;
+}

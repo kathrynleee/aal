@@ -16,19 +16,18 @@
 
         <script>
             $(document).ready(function(){
+            	if(localStorage.userType == "FRIEND") {
+					$(".userOnly").hide();
+					$(".friendOnly").show();
+            	} else {
+            		$(".userOnly").show();
+					$(".friendOnly").hide();
+            	}
+            	
             	$( "#messages" ).scrollTop( 300 );
             	$("button[value='SmokeSensor']").click(function() {
             		$("#messages").empty();
             		startConnect();
-            	});
-                
-            	$("button[value='face']").click(function() {
-            		$("#messages").empty();
-            		startDisconnect();
-            	});
-            	
-            	$("button[value='logic']").click(function() {
-            		$("#messages").empty();
             	});
             });
         </script>
@@ -44,9 +43,9 @@
                     <div class="menu-items">
                         <a href="health"><img class="menu-img" src="resources/image/yellow/health.png"></a>
                         <a href="photo"><img class="menu-img" src="resources/image/yellow/photo.png"></a>
-                        <a href="security userOnly"><img class="menu-img" src="resources/image/yellow/security.png"></a>
-                        <a href="rule userOnly"><img class="menu-img" src="resources/image/yellow/rule.png"></a>
-                        <a href="device userOnly"><img class="menu-img" src="resources/image/yellow/device.png"></a>
+                        <a href="security" class="userOnly"><img class="menu-img" src="resources/image/yellow/security.png"></a>
+                        <a href="rule" class="userOnly"><img class="menu-img" src="resources/image/yellow/rule.png"></a>
+                        <a href="device" class="userOnly"><img class="menu-img" src="resources/image/yellow/device.png"></a>
                         <a href="#"><img class="menu-img" src="resources/image/user.png"></a>
                         <a href="login"><img class="menu-img" src="resources/image/logout.png"></a>
                     </div>
@@ -58,8 +57,6 @@
                 <div class="title">Simulations</div>
                 <div class="button-gp">
                 	<button type="button" value="SmokeSensor"><span>Smoke Sensor</span></button>
-                	<button type="button" value="face"><span>Face Recognition</span></button>
-                	<button type="button" value="logic"><span>Composite Logic</span></button>
                 </div>
                 <div id="messages"></div>
             </div>

@@ -16,6 +16,7 @@
 
         <script>
             $(document).ready(function(){
+            	startConnect();
             	if(localStorage.userType == "FRIEND") {
 					$(".userOnly").hide();
 					$(".friendOnly").show();
@@ -23,6 +24,15 @@
             		$(".userOnly").show();
 					$(".friendOnly").hide();
             	}
+            	$("#Door1").click(function(){
+            		if($("#Door1Status").text()=="Unlocked") 
+            			message = new Paho.MQTT.Message("Lock");
+            		else
+            			message = new Paho.MQTT.Message("Unlock");
+            		
+                    message.destinationName = "DoorStatus1";
+                    client.send(message); 
+            	});
             });
         </script>
     </head>
@@ -59,25 +69,23 @@
                     		<th>Control</th>
                     	</tr>
                     	<tr>
-                    		<td>Door 1</td>
-                    		<td id="doorStatus"><div id="doorStatus">Closed</div></td>
-                    		<td><button id="Door1" type="button" value="Open"><span>Open</span></button></td>
+                    		<td>Door1</td>
+                    		<td id="Door1Status" class="alert">Unlocked</td>
+                    		<td><button id="Door1" type="button" value=""><span>Lock</span></button></td>
                     	</tr>
                     	<tr>
                     		<td>Window 1</td>
-                    		<td id="window1Status" class="alert">Opened</td>
-                    		<td><button id="Window1" type="button" value="Close"><span>Close</span></button></td>
+                    		<td id="Window1Status">Locked</td>
+                    		<td><button id="Window1" type="button" value=""><span>Unlock</span></button></td>
                     	</tr>
                     	<tr>
                     		<td>Window 2</td>
-                    		<td id="window2Status">Closed</td>
-                    		<td><button id="Window2" type="button" value="Open"><span>Open</span></button></td>
+                    		<td id="Window2Status" class="alert">Unlocked</td>
+                    		<td><button id="Window2" type="button" value=""><span>Lock</span></button></td>
                     	</tr>
                     </table>
                 </div>
-                <div class="sub-section messages">
-                	
-                </div>
+                <div id="messages"></div>
             </div>
         </div>
     </body>

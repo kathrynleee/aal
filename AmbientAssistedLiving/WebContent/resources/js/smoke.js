@@ -14,7 +14,7 @@ function startConnect() {
     clientID = "clientID_" + parseInt(Math.random() * 100);
 
     // Fetch the hostname IP address and port number from the form
-    host = "192.168.0.102";
+    host = "192.168.43.106";
     port = "1884";
 
     // Print output for the user in the messages div
@@ -56,9 +56,6 @@ function onMessageArrived(message) {
 	var d = new Date();
     //console.log(d.toLocaleString() + " Message: " + message.payloadString);
     document.getElementById("messages").innerHTML += d.toLocaleString() + "&nbsp;&nbsp;&nbsp;" + message.payloadString + '<br/>';
-    if(message.payloadString == "Smoke detected") {
-    	alert("Run!");
-    }
     updateScroll();
 }
 

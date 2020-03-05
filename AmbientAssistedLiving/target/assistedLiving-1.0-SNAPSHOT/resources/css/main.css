@@ -244,7 +244,7 @@ input {
   white-space: nowrap;
 }
 
-.main.device .button-gp button {
+.button-gp button {
 	font-size: small;
 	flex: 1 1 0;
 	flex-direction: row;
@@ -272,6 +272,11 @@ input {
 }
 
 /* Photo */
+.photo-carousel img.carousel-img {
+	max-width: 100%;
+  	height: auto;
+}
+
 .main.photo .sub-section{
 	background-color: white;
 }
@@ -342,4 +347,50 @@ input {
     /* 4px */
     margin-right: 0.25em;
     /* 4px */
+}
+
+/* Security */
+.main.security table {
+    margin: 0 auto;
+}
+.main.security table td, .main.security table th {
+	padding: 0px 30px;
+	text-align: center;
+}
+
+.main.security table button {
+	background-color: #13254C;
+    color: white;
+    width: 100px;
+}
+
+.main.security table button span{
+	font-size: 1em;
+}
+
+.main.security table .alert{
+	color: #C11F47;
+	font-weight: bold;
+}
+
+.main.security #messages {
+	margin: 0px;
+	height: 250px;
+}
+
+/* Rule */
+.main.rule #messages {
+	margin: 0px;
+	height: 300px;
+	
+}
+
+.main.rule .rule div{
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.main.rule button {
+    margin: 0px;
+    margin-bottom: 20px;
 }

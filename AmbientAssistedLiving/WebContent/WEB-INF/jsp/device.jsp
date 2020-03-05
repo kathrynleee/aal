@@ -29,15 +29,6 @@
             		$("#messages").empty();
             		startConnect();
             	});
-                
-            	$("button[value='face']").click(function() {
-            		$("#messages").empty();
-            		startDisconnect();
-            	});
-            	
-            	$("button[value='logic']").click(function() {
-            		$("#messages").empty();
-            	});
             });
         </script>
     </head>
@@ -66,8 +57,6 @@
                 <div class="title">Simulations</div>
                 <div class="button-gp">
                 	<button type="button" value="SmokeSensor"><span>Smoke Sensor</span></button>
-                	<button type="button" value="face"><span>Face Recognition</span></button>
-                	<button type="button" value="logic"><span>Composite Logic</span></button>
                 </div>
                 <div id="messages"></div>
             </div>

@@ -24,19 +24,16 @@
     	    	    },
     				type : "POST",
     			    complete: function (response) {
-    			    	console.log(response);
     			    	var type = "USER";
     			    	if($("input[name='username']").val() == "nick")
     			    		type = "FRIEND";
     			    	localStorage.userType = type;
     			    	window.location.href = "dashboard";
+    			    	window.top.location = "http://localhost:8000/AmbientAssistedLiving/dashboard";
     			    },
     			    success: function(data) {
     			    	console.log(data);
     			    		
-    			    },
-    			    error: function() {
-    			        alert('Error occured');
     			    }
     			});
         	});

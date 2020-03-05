@@ -14,7 +14,7 @@ function startConnect() {
     clientID = "clientID_" + parseInt(Math.random() * 100);
 
     // Fetch the hostname IP address and port number from the form
-    host = "10.0.23.220";
+    host = "192.168.43.79";
     port = "1884";
 
     // Print output for the user in the messages div
@@ -36,18 +36,25 @@ function startConnect() {
 
 // Called when the client connects
 function onConnect() {
-	var topic = "SmokeSensor";
+	console.log("onConnect");
+	var topic = "Door1";
+	var topic1 = "Window1";
+	var topic2 = "Window2";
     document.getElementById("messages").innerHTML += '<span>Subscribed to: ' + topic + '</span><br/>';
+    document.getElementById("messages").innerHTML += '<span>Subscribed to: ' + topic1 + '</span><br/>';
+    document.getElementById("messages").innerHTML += '<span>Subscribed to: ' + topic2 + '</span><br/>';
 
     // Subscribe to the requested topic
     client.subscribe(topic);
+    client.subscribe(topic1);
+    client.subscribe(topic2);
 }
 
 // Called when the client loses its connection
 function onConnectionLost(responseObject) {
     document.getElementById("messages").innerHTML += '<span>ERROR: Connection lost</span><br/>';
     if (responseObject.errorCode !== 0) {
-        document.getElementById("messages").innerHTML += '<span>ERROR: ' + + responseObject.errorMessage + '</span><br/>';
+        document.getElementById("messages").innerHTML += '<span>ERROR: ' + responseObject.errorMessage + '</span><br/>';
     }
 }
 
@@ -55,9 +62,18 @@ function onConnectionLost(responseObject) {
 function onMessageArrived(message) {
 	var d = new Date();
     //console.log(d.toLocaleString() + " Message: " + message.payloadString);
-    document.getElementById("messages").innerHTML += d.toLocaleString() + "&nbsp;&nbsp;&nbsp;" + message.payloadString + '<br/>';
-    if(message.payloadString == "Smoke detected") {
-    	alert("Run!");
+    document.getElementById("messages").innerHTML += d.toLocaleString() + "&nbsp;&nbsp;&nbsp;from " + message.destinationName + ":&nbsp;&nbsp;&nbsp"  + message.payloadString + '<br/>';
+    if(message.payloadString != document.getElementById(message.destinationName + "Status").innerText) {
+    	document.getElementById(message.destinationName + "Status").innerText = message.payloadString;
+    	var element = document.getElementById(message.destinationName + "Status");
+    	var control = document.getElementById(message.destinationName);
+    	if(element.innerText == "Unlocked") {
+    		element.classList.add("alert");
+    		control.innerText = "Lock";
+    	} else {
+    		element.classList.remove("alert");
+    		control.innerText = "Unlock";
+    	}
     }
     updateScroll();
 }

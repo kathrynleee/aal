@@ -13,7 +13,7 @@
 
     <mvc:annotation-driven />
     <context:component-scan
-            base-package="main.controller" />
+            base-package="main.controller, main.service" />
     <mvc:default-servlet-handler />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -16,6 +16,23 @@
 
         <script>
             $(document).ready(function(){
+            	startConnect();
+            	if(localStorage.userType == "FRIEND") {
+					$(".userOnly").hide();
+					$(".friendOnly").show();
+            	} else {
+            		$(".userOnly").show();
+					$(".friendOnly").hide();
+            	}
+            	$("#Door1").click(function(){
+            		if($("#Door1Status").text()=="Unlocked") 
+            			message = new Paho.MQTT.Message("Lock");
+            		else
+            			message = new Paho.MQTT.Message("Unlock");
+            		
+                    message.destinationName = "DoorStatus1";
+                    client.send(message); 
+            	});
             });
         </script>
     </head>
@@ -30,20 +47,21 @@
                     <div class="menu-items">
                         <a href="health"><img class="menu-img" src="resources/image/yellow/health.png"></a>
                         <a href="photo"><img class="menu-img" src="resources/image/yellow/photo.png"></a>
-                        <a href="security userOnly"><img class="menu-img" src="resources/image/yellow/security.png"></a>
-                        <a href="rule userOnly"><img class="menu-img" src="resources/image/yellow/rule.png"></a>
-                        <a href="device userOnly"><img class="menu-img" src="resources/image/yellow/device.png"></a>
+                        <a href="security" class="userOnly"><img class="menu-img" src="resources/image/yellow/security.png"></a>
+                        <a href="rule" class="userOnly"><img class="menu-img" src="resources/image/yellow/rule.png"></a>
+                        <a href="device" class="userOnly"><img class="menu-img" src="resources/image/yellow/device.png"></a>
                         <a href="#"><img class="menu-img" src="resources/image/user.png"></a>
                         <a href="login"><img class="menu-img" src="resources/image/logout.png"></a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="main">
+        <div class="main security">
             <div class="sub">
-                <div class="title">Security</div>
+                <div class="title">Lock Status</div>
                 <div class="sub-section">
-                    <div class="sub-section-title">Lock Status</div>
+                    <!-- <div class="sub-section-title">Lock Status</div> -->
+                    <!-- <div class="status-table"> -->
                     <table>
                     	<tr>
                     		<th>Name</th>
@@ -52,27 +70,22 @@
                     	</tr>
                     	<tr>
                     		<td>Door1</td>
-                    		<td id="doorStatus">Closed</td>
-                    		<td>
-                    			<button id="Door1" type="button" value="Open"><span>Open</span></button>
-                    		</td>
+                    		<td id="Door1Status" class="alert">Unlocked</td>
+                    		<td><button id="Door1" type="button" value=""><span>Lock</span></button></td>
                     	</tr>
                     	<tr>
-                    		<td>Window1</td>
-                    		<td id="w1Status">Opened</td>
-                    		<td>
-                    			<button id="Window1" type="button" value="Close"><span>Close</span></button>
-                    		</td>
+                    		<td>Window 1</td>
+                    		<td id="Window1Status">Locked</td>
+                    		<td><button id="Window1" type="button" value=""><span>Unlock</span></button></td>
                     	</tr>
                     	<tr>
-                    		<td>Window2</td>
-                    		<td id="w2Status">Closed</td>
-                    		<td>
-                    			<button id="Window2" type="button" value="Open"><span>Open</span></button>
-                    		</td>
+                    		<td>Window 2</td>
+                    		<td id="Window2Status" class="alert">Unlocked</td>
+                    		<td><button id="Window2" type="button" value=""><span>Lock</span></button></td>
                     	</tr>
                     </table>
                 </div>
+                <div id="messages"></div>
             </div>
         </div>
     </body>
